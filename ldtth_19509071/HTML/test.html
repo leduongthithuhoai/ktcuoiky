@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../JS/jquery-3.6.0.min.js"></script>
+    <script>
+        function chooseFile(fileInput) {
+            if (fileInput.files && fileInput.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $("#image").attr("src", e.target.result);
+                }
+                reader.readAsDataURL(fileInput.files[0]);
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form action="">
+        <img src="" alt="" id="image" width="200" height="200">
+        <input type="file" id="imageFile" class="form-control" accept="image/gif, image/jpeg, image/png" onchange="chooseFile(this)">
+    </form>
+</body>
+
+</html>
